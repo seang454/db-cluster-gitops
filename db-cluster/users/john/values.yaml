@@ -16,6 +16,10 @@ externalTcpProxy:
 
 postgresql:
   enabled: true
+  credentials:
+    superuser: "Admin@1234"        # ← required
+    admin: "Admin@1234"            # ← required
+    standby: "Admin@1234"          # ← required
   cluster:
     instances: 2
     imageName: ghcr.io/cloudnative-pg/postgresql:16.2
@@ -44,6 +48,8 @@ postgresql:
 
 redis:
   enabled: true
+  auth:
+    password: "Admin@1234"         # ← required
   cluster:
     instances: 3
     resources:

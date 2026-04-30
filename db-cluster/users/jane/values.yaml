@@ -1,9 +1,3 @@
-# ============================================================
-# Jane's db-cluster values
-# Managed by: Spring Boot (auto-provisioning)
-# Namespace:  jane
-# ============================================================
-
 externalTcpProxy:
   clusterDomain: seang.shop
   kubeClusterDomain: benzcluster
@@ -15,10 +9,17 @@ externalTcpProxy:
 mongodb:
   enabled: true
   credentials:
-    clusterAdminPassword: "Admin@1234"    # ← required
-    clusterAdminUser: "clusterAdmin"      # ← required
-    dbAdminPassword: "Admin@1234"         # ← required
-    dbAdminUser: "dbAdmin"               # ← required
+    clusterAdminUser: clusterAdmin
+    clusterAdminPassword: "Admin@1234"
+    userAdminUser: userAdmin
+    userAdminPassword: "Admin@1234"
+    clusterMonitorUser: clusterMonitor
+    clusterMonitorPassword: "Admin@1234"
+    databaseAdminUser: databaseAdmin
+    databaseAdminPassword: "Admin@1234"
+    backupUser: backup
+    backupPassword: "Admin@1234"
+    replicationKey: "replicationKey1234"
   cluster:
     instances: 3
     resources:
