@@ -14,6 +14,11 @@ externalTcpProxy:
 
 mongodb:
   enabled: true
+  credentials:
+    clusterAdminPassword: "Admin@1234"    # ← required
+    clusterAdminUser: "clusterAdmin"      # ← required
+    dbAdminPassword: "Admin@1234"         # ← required
+    dbAdminUser: "dbAdmin"               # ← required
   cluster:
     instances: 3
     resources:
