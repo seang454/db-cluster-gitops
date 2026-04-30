@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/seang454/db-cluster-gitops.git
         revision: master
         directories:
-          - path: db-cluster/users/*
+          - path: db-cluster/users/*/*
 
   # Prevent stuck finalizer issue you just faced
   syncPolicy:
@@ -17,7 +17,7 @@ spec:
 
   template:
     metadata:
-      name: '{{path.basename}}-db-cluster'
+      name: '{{path[2]}}-{{path.basename}}-db-cluster'
       finalizers:
         - resources-finalizer.argocd.argoproj.io  # ← use simple finalizer, not foreground
     spec:
@@ -33,11 +33,11 @@ spec:
           path: db-cluster
           helm:
             valueFiles:
-              - $uservalues/db-cluster/users/{{path.basename}}/values.yaml
+              - $uservalues/{{path}}/values.yaml
 
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        namespace: '{{path[2]}}'
 
       syncPolicy:
         automated:
