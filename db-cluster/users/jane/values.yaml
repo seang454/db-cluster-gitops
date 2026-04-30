@@ -8,6 +8,7 @@ externalTcpProxy:
 
 mongodb:
   enabled: true
+  clusterServiceDNSSuffix: k8scluster
   credentials:
     clusterAdminUser: clusterAdmin
     clusterAdminPassword: "Admin@1234"
