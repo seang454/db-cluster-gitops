@@ -11,9 +11,15 @@ spec:
         directories:
           - path: db-cluster/users/*
 
+  # Prevent stuck finalizer issue you just faced
+  syncPolicy:
+    preserveResourcesOnDeletion: false   # ← deletes K8s resources when app is deleted
+
   template:
     metadata:
       name: '{{path.basename}}-db-cluster'
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io  # ← use simple finalizer, not foreground
     spec:
       project: default
 
@@ -39,3 +45,5 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+          - PrunePropagationPolicy=foreground  # ← clean deletion order
+          - PruneLast=true                     # ← prune after all resources sync
