@@ -32,6 +32,7 @@ spec:
           targetRevision: master
           path: db-cluster
           helm:
+            releaseName: '{{path.basename}}'
             valueFiles:
               - $uservalues/{{path}}/values.yaml
 
