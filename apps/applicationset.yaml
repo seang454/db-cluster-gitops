@@ -19,7 +19,7 @@ spec:
 
       sources:
         - repoURL: https://github.com/seang454/db-cluster-gitops.git
-          targetRevision: main
+          targetRevision: master
           ref: uservalues
 
         - repoURL: https://github.com/seang454/ab-cluster.git
