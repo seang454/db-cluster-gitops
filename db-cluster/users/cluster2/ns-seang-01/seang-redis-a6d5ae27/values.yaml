@@ -1,0 +1,10 @@
+global:
+  clusterIdentity: seang-redis-a6d5ae27
+redis:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - redis-db.seang.shop
+  auth:
+    password: RedisStrongPassword123!
