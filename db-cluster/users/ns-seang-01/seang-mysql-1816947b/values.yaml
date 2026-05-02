@@ -1,0 +1,19 @@
+global:
+  clusterIdentity: seang-mysql-1816947b
+mysql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - mysql-db.seang.shop
+  haproxy:
+    size: 2
+  credentials:
+    clusterCheckPassword: MysqlStrongPassword123!
+    replicationPassword: MysqlStrongPassword123!
+    monitorPassword: MysqlStrongPassword123!
+    rootPassword: MysqlStrongPassword123!
+  backup:
+    enabled: true
+    schedule:
+      cron: 20 2 * * *
