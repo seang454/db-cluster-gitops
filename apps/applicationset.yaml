@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/seang454/db-cluster-gitops.git
         revision: master
         directories:
-          - path: db-cluster/users/*/*
+          - path: db-cluster/users/*/*/*
 
   # Prevent stuck finalizer issue you just faced
   syncPolicy:
@@ -17,7 +17,7 @@ spec:
 
   template:
     metadata:
-      name: '{{path[2]}}-{{path.basename}}-db-cluster'
+      name: '{{path[3]}}-{{path.basename}}-db-cluster'
       finalizers:
         - resources-finalizer.argocd.argoproj.io  # ← use simple finalizer, not foreground
     spec:
@@ -38,7 +38,7 @@ spec:
 
       destination:
         server: 'https://34.151.80.25:6443'
-        namespace: '{{path[2]}}'
+        namespace: '{{path[3]}}'
 
       syncPolicy:
         automated:
