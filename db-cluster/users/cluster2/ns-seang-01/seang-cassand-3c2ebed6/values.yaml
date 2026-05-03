@@ -1,0 +1,21 @@
+global:
+  clusterIdentity: seang-cassand-3c2ebed6
+cassandra:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - cassandra-db.seang.shop
+  tls:
+    enabled: true
+    clientEncryption: true
+  cluster:
+    config:
+      clusterName: seang-cassandra
+      datacenter: dc1
+  credentials:
+    password: CassandraStrongPassword123!
+  backup:
+    enabled: true
+    schedule:
+      cron: 30 3 * * *
