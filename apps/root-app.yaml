@@ -1,6 +1,6 @@
 # root-app.yaml
 apiVersion: argoproj.io/v1alpha1
-kind: Application        # ← fix this, just "Application"
+kind: Application
 metadata:
   name: root-db-clusters
   namespace: argocd
@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/seang454/db-cluster-gitops.git
     targetRevision: master
-    path: argocd/applicationsets
+    path: apps    # ← points to your apps/ folder
 
   destination:
     server: https://kubernetes.default.svc
