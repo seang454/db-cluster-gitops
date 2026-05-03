@@ -1,0 +1,23 @@
+global:
+  clusterIdentity: asdf-a02c7cd9
+externalTcpProxy:
+  ports:
+    postgresql: 5432
+postgresql:
+  enabled: true
+  cluster:
+    bootstrap:
+      database: asdf
+      owner: app_asdf
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: asdf
+    admin: asdf
