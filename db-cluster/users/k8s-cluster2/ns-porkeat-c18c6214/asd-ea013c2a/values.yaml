@@ -1,0 +1,27 @@
+global:
+  clusterIdentity: asd-ea013c2a
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - asd.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: asd
+      owner: app_asd
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: asd
+    admin: asd
