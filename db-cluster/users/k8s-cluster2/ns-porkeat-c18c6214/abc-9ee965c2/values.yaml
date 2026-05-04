@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: abc-9ee965c2
+externalTcpProxy:
+  ports:
+    postgresql: 15433
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - abc.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: abc
+      owner: abc
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: abc
+    admin: abc
