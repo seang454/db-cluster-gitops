@@ -1,0 +1,15 @@
+global:
+  clusterIdentity: seang-redis-0f8f615c
+redis:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - redis-db.seang.shop
+  tls:
+    enabled: true
+    mode: certManager
+  exporter:
+    enabled: true
+  auth:
+    password: RedisStrongPassword123!
