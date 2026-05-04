@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: postgres-62424315
+externalTcpProxy:
+  ports:
+    postgresql: 15434
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - postgres.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: demodb
+      owner: app_postgres
+    resources:
+      requests:
+        cpu: 2000m
+        memory: 4Gi
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+  storage:
+    size: 50Gi
+  credentials:
+    superuser: net123
+    admin: net123
