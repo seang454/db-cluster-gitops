@@ -1,0 +1,27 @@
+global:
+  clusterIdentity: seang-mongo-e23d01c3
+externalTcpProxy:
+  ports:
+    mongodb: 17017
+mongodb:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - mongo-db-0.seang.shop
+    - mongo-db-1.seang.shop
+    - mongo-db-2.seang.shop
+    replicaSetHorizons:
+      enabled: true
+      basePort: 17017
+  tls:
+    enabled: true
+    mode: certManager
+  connection:
+    username: mongdb
+    password: mongodb@1234
+    port: 17017
+  backup:
+    enabled: true
+    task:
+      schedule: 10 2 * * *
