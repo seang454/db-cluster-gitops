@@ -1,0 +1,28 @@
+global:
+  clusterIdentity: seang-mongo-6b69444b
+mongodb:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - mongo-db-0.seang.shop
+    - mongo-db-1.seang.shop
+    - mongo-db-2.seang.shop
+    replicaSetHorizons:
+      enabled: true
+      basePort: 27017
+  tls:
+    enabled: true
+    mode: certManager
+  clusterServiceDNSSuffix: cluster2
+  credentials:
+    replicationKey: MongoStrongPassword123!
+    userAdminPassword: MongoStrongPassword123!
+    databaseAdminPassword: MongoStrongPassword123!
+    clusterMonitorPassword: MongoStrongPassword123!
+    backupPassword: MongoStrongPassword123!
+    clusterAdminPassword: MongoStrongPassword123!
+  backup:
+    enabled: true
+    task:
+      schedule: 10 2 * * *
