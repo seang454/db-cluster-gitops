@@ -1,0 +1,36 @@
+global:
+  clusterIdentity: asdf-41b32f3c
+externalTcpProxy:
+  expose:
+    postgresql: true
+    mongodb: false
+    mysql: false
+    redis: false
+    cassandra: false
+  ports:
+    postgresql: 15433
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - asdf.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: asdga
+      owner: asd
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    admin: basd
+    superuser: basd
