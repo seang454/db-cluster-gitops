@@ -1,0 +1,36 @@
+global:
+  clusterIdentity: test-dbcluste-451f149a
+externalTcpProxy:
+  expose:
+    postgresql: true
+    mongodb: false
+    mysql: false
+    redis: false
+    cassandra: false
+  ports:
+    postgresql: 15434
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - test-dbcluster.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: test
+      owner: test
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: test
+    admin: test
