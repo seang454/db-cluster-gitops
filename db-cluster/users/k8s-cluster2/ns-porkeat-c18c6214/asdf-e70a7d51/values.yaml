@@ -1,0 +1,27 @@
+global:
+  clusterIdentity: asdf-e70a7d51
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - asdf.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: asdga
+      owner: asd
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    admin: basd
+    superuser: basd
