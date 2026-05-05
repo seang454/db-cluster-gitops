@@ -1,0 +1,28 @@
+global:
+  clusterIdentity: seang-cassand-cd007d2d
+cassandra:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - cassandra-db.seang.shop
+  tls:
+    enabled: true
+    clientEncryption: true
+  storage:
+    size: 4Gi
+    storageClass: longhorn
+  cluster:
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2Gi
+      limits:
+        cpu: 1500m
+        memory: 4Gi
+  credentials:
+    password: CassandraStrongPassword123!
+  backup:
+    enabled: true
+    schedule:
+      cron: 30 3 * * *
