@@ -1,0 +1,25 @@
+global:
+  clusterIdentity: seang-mysql-31f04ebf
+externalTcpProxy:
+  ports:
+    mysql: 13306
+mysql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - mysql-db.seang.shop
+  tls:
+    enabled: true
+    mode: certManager
+  connection:
+    username: mysqlUser
+    password: mysql@1234
+    port: 13306
+    database: mysql
+  haproxy:
+    size: 2
+  backup:
+    enabled: true
+    schedule:
+      cron: 20 2 * * *
