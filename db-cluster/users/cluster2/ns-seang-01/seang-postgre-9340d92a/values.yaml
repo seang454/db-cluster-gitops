@@ -1,0 +1,36 @@
+global:
+  clusterIdentity: seang-postgre-9340d92a
+externalTcpProxy:
+  ports:
+    postgresql: 15432
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - postgres-db.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  connection:
+    username: userdb
+    password: postgres@1234
+    port: 15432
+  cluster:
+    instances: 1
+    bootstrap:
+      database: Postgrestdb
+      owner: userdb
+  backup:
+    enabled: true
+    s3Credentials:
+      accessKeyId:
+        key: root-user
+        secretName: minio-credentials-seang-postgre-9340d92a
+      secretAccessKey:
+        key: root-password
+        secretName: minio-credentials-seang-postgre-9340d92a
+    schedule:
+      cron: 0 * 20 * * *
+      timeZone: Asia/Phnom_Penh
+      immediate: false
