@@ -31,6 +31,6 @@ postgresql:
         key: root-password
         secretName: minio-credentials-seang-postgre-9340d92a
     schedule:
-      cron: 0 * 20 * * *
+      cron: 0 * 21 * * *
       timeZone: Asia/Phnom_Penh
       immediate: false
