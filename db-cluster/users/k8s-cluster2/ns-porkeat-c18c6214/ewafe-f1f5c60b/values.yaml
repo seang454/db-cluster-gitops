@@ -1,0 +1,35 @@
+global:
+  clusterIdentity: ewafe-f1f5c60b
+gateway:
+  enabled: true
+externalTcpProxy:
+  enabled: false
+externalSecrets:
+  enabled: false
+vault:
+  enabled: false
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - ewafe.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: aewf
+      owner: app_ewafe
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: aweg
+    admin: aweg
