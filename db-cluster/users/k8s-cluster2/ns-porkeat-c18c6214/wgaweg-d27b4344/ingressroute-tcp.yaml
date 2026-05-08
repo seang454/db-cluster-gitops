@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: wgaweg-d27b4344-tcp
+  namespace: ns-porkeat-c18c6214
+spec:
+  entryPoints:
+  - postgresql
+  routes:
+  - match: 'HostSNI(`wgaweg.seang.shop`) '
+    services:
+    - name: wgaweg-d27b4344-postgresql-rw
+      port: null
+  tls:
+    passthrough: true

@@ -1,0 +1,35 @@
+global:
+  clusterIdentity: wgaweg-d27b4344
+  vault:
+    enabled: false
+  externalSecrets:
+    enabled: false
+gateway:
+  enabled: true
+externalTcpProxy:
+  enabled: false
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - wgaweg.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: aegw
+      owner: app_wgaweg
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    admin: aegae
+    superuser: aegae
