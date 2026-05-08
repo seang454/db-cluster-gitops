@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: asdf-07687f22
+gateway:
+  enabled: true
+externalTcpProxy:
+  enabled: false
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - asdf.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: faef
+      owner: app_asdf
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    superuser: awef
+    admin: awef
