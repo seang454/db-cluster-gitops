@@ -1,0 +1,43 @@
+global:
+  clusterIdentity: xgdg-1c5b1348
+  vault:
+    enabled: false
+  externalSecrets:
+    enabled: false
+gateway:
+  enabled: true
+externalTcpProxy:
+  enabled: false
+  expose:
+    postgresql: true
+    mongodb: false
+    mysql: false
+    redis: false
+    cassandra: false
+  ports:
+    postgresql: 15433
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - xgdg.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: dxdhxd
+      owner: app_xgdg
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  credentials:
+    admin: dxgdg
+    superuser: dxgdg
