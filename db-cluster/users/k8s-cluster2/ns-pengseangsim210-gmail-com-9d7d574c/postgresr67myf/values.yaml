@@ -1,0 +1,28 @@
+global:
+  clusterIdentity: postgresr67myf
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - postgres.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: postgres
+      owner: app_seang1
+    resources:
+      requests:
+        cpu: 250m
+        memory: 768Mi
+      limits:
+        cpu: 750m
+        memory: 2Gi
+  storage:
+    size: 4Gi
+  externalSecretRef: postgresr67myf-postgresql-app
+  superuserExternalSecretRef: postgresr67myf-postgresql-credentials
