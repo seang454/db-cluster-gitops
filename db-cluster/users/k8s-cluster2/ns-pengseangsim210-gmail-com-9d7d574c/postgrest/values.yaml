@@ -1,0 +1,28 @@
+global:
+  clusterIdentity: postgrest
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - postgrest.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: appdb
+      owner: app_postgrest
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 10Gi
+  externalSecretRef: postgrest-postgresql-app
+  superuserExternalSecretRef: postgrest-postgresql-credentials
