@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: my-database-cl
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - my-database-cluster-postgres.cluster-db.autonomous-istad.com
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: postgres
+      owner: app_my_database_cluster_postgres
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 5Gi
+  pooler:
+    enabled: true
+  externalSecretRef: my-database-cl-postgresql-app
+  superuserExternalSecretRef: my-database-cl-postgresql-credentials
