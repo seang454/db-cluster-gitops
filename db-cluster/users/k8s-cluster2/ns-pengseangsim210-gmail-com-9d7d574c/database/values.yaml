@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: database
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - database.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: mean
+      owner: app_database
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 5Gi
+  pooler:
+    enabled: true
+  externalSecretRef: database-postgresql-app
+  superuserExternalSecretRef: database-postgresql-credentials
