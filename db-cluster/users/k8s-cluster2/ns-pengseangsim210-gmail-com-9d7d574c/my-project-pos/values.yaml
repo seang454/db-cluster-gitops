@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: my-project-pos
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - my-project-postgres.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: postgres
+      owner: app_my_project_postgres
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 5Gi
+  pooler:
+    enabled: true
+  externalSecretRef: my-project-pos-postgresql-app
+  superuserExternalSecretRef: my-project-pos-postgresql-credentials
