@@ -37,7 +37,7 @@ spec:
               - $uservalues/{{path}}/values.yaml
 
       destination:
-        server: 'https://kubernetes.default.svc'
+        server: 'https://34.50.95.205:6443'
         namespace: '{{path[3]}}'
 
       syncPolicy:
