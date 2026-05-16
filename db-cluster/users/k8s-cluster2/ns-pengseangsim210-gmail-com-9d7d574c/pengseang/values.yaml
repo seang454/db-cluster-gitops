@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: pengseang
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - pengseang.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: database
+      owner: app_pengseang
+    resources:
+      requests:
+        cpu: 500m
+        memory: 512Mi
+      limits:
+        cpu: 1000m
+        memory: 1Gi
+  storage:
+    size: 5Gi
+  pooler:
+    enabled: true
+  externalSecretRef: pengseang-postgresql-app
+  superuserExternalSecretRef: pengseang-postgresql-credentials
