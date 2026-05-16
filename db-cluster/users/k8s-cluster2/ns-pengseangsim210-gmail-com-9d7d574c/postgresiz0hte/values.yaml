@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: postgresiz0hte
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - seang-clone.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:16.2
+    bootstrap:
+      database: database
+      owner: app_seang
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+  pooler:
+    enabled: true
+  externalSecretRef: postgresiz0hte-postgresql-app
+  superuserExternalSecretRef: postgresiz0hte-postgresql-credentials
