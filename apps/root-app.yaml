@@ -15,7 +15,7 @@ spec:
     path: apps    # ← points to your apps/ folder
 
   destination:
-    server:  https://34.50.95.205:6443
+    server: https://kubernetes.default.svc
     namespace: argocd
 
   syncPolicy:
