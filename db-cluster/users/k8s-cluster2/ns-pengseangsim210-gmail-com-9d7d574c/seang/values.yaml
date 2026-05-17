@@ -1,0 +1,28 @@
+global:
+  clusterIdentity: seang
+gateway:
+  enabled: true
+mongodb:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - seang-0.seang.shop
+    - seang-1.seang.shop
+    - seang-2.seang.shop
+    replicaSetHorizons:
+      enabled: true
+  clusterServiceDNSSuffix: k8s-cluster2
+  cluster:
+    image: percona/percona-server-mongodb:7.0
+    instances: 3
+    resources:
+      requests:
+        cpu: 200m
+        memory: 768Mi
+      limits:
+        cpu: 600m
+        memory: 1536Mi
+  storage:
+    size: 4Gi
+  externalSecretRef: seang-mongodb-credentials
