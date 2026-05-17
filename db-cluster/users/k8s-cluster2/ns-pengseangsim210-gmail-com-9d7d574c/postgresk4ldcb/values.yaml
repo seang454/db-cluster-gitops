@@ -13,7 +13,7 @@ postgresql:
     mode: operator
   cluster:
     imageName: ghcr.io/cloudnative-pg/postgresql:16.2
-    instances: 2
+    instances: 3
     bootstrap:
       database: database
       owner: app_seang
