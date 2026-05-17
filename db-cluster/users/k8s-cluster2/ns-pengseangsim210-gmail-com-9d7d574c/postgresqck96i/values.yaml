@@ -1,0 +1,34 @@
+global:
+  clusterIdentity: ka-clone
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - ka-clone.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:16.2
+    instances: 3
+    bootstrap:
+      database: kaka
+      owner: app_ka
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: postgresqck96i-postgresql-app
+  superuserExternalSecretRef: postgresqck96i-postgresql-credentials
