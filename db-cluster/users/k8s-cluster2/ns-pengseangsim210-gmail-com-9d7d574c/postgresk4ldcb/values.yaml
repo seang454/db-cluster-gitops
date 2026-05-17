@@ -1,5 +1,5 @@
 global:
-  clusterIdentity: seang-clone
+  clusterIdentity: postgresk4ldcb
 gateway:
   enabled: true
 postgresql:
@@ -13,7 +13,7 @@ postgresql:
     mode: operator
   cluster:
     imageName: ghcr.io/cloudnative-pg/postgresql:16.2
-    instances: 3
+    instances: 2
     bootstrap:
       database: database
       owner: app_seang
@@ -26,8 +26,6 @@ postgresql:
         memory: 1Gi
   storage:
     size: 4Gi
-    wal:
-      enabled: false
   pooler:
     enabled: true
   externalSecretRef: postgresk4ldcb-postgresql-app
