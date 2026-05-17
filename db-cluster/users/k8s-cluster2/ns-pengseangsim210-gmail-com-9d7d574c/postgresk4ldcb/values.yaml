@@ -25,7 +25,7 @@ postgresql:
         cpu: 500m
         memory: 1Gi
   storage:
-    size: 4Gi
+    size: 3Gi
   pooler:
     enabled: true
   externalSecretRef: postgresk4ldcb-postgresql-app
