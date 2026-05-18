@@ -17,7 +17,7 @@ mongodb:
     enabled: true
     mode: certManager
   cluster:
-    image: percona/percona-server-mongodb:7.0
+    image: percona/percona-server-mongodb:8.0
     instances: 2
     resources:
       requests:
