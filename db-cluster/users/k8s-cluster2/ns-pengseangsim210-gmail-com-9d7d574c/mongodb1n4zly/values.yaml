@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: seang-clone
+gateway:
+  enabled: true
+mongodb:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - seang-clone-0.seang.shop
+    - seang-clone-1.seang.shop
+    replicaSetHorizons:
+      enabled: true
+      basePort: 17017
+  tls:
+    enabled: true
+    mode: certManager
+  cluster:
+    image: percona/percona-server-mongodb:8.0
+    instances: 2
+    resources:
+      requests:
+        cpu: 200m
+        memory: 768Mi
+      limits:
+        cpu: 600m
+        memory: 1536Mi
+  storage:
+    size: 4Gi
+  externalSecretRef: mongodb1n4zly-mongodb-credentials
