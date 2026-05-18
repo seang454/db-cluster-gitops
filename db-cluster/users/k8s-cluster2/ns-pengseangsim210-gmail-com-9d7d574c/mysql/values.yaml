@@ -16,7 +16,7 @@ mysql:
   haproxy:
     size: 2
   cluster:
-    image: percona/percona-xtradb-cluster:8.0
+    image: percona/percona-xtradb-cluster:8.4
     instances: 2
     resources:
       requests:
