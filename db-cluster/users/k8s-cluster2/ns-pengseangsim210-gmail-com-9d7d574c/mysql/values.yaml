@@ -5,15 +5,18 @@ gateway:
 mysql:
   enabled: true
   externalAccess:
+    enabled: true
     publicHostnames:
     - mysql.seang.shop
+  tls:
+    enabled: true
+    mode: certManager
   storage:
     size: 4Gi
   haproxy:
     size: 2
   cluster:
     image: percona/percona-xtradb-cluster:8.0
-    instances: 3
     resources:
       requests:
         cpu: 250m
