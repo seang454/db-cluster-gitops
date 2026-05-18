@@ -9,7 +9,6 @@ mongodb:
     publicHostnames:
     - seang-0.seang.shop
     - seang-1.seang.shop
-    - seang-2.seang.shop
     replicaSetHorizons:
       enabled: true
       basePort: 17017
