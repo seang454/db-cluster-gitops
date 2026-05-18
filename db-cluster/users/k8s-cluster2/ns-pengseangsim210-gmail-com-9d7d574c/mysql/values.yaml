@@ -17,6 +17,7 @@ mysql:
     size: 2
   cluster:
     image: percona/percona-xtradb-cluster:8.0
+    instances: 2
     resources:
       requests:
         cpu: 250m
