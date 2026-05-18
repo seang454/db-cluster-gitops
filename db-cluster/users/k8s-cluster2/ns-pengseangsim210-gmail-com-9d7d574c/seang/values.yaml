@@ -13,9 +13,11 @@ mongodb:
     replicaSetHorizons:
       enabled: true
       basePort: 17017
+  tls:
+    enabled: true
+    mode: certManager
   cluster:
-    image: percona/percona-server-mongodb:7.0
-    instances: 3
+    image: percona/percona-server-mongodb:8.0
     resources:
       requests:
         cpu: 200m
