@@ -1,0 +1,22 @@
+global:
+  clusterIdentity: java
+gateway:
+  enabled: true
+redis:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - java.seang.shop
+  storage:
+    size: 3Gi
+  cluster:
+    image: redis:7.2-alpine
+    instances: 3
+    resources:
+      requests:
+        cpu: 75m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 512Mi
+  externalSecretRef: java-redis-credentials
