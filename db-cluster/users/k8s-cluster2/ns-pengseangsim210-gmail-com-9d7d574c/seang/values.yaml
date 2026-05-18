@@ -18,6 +18,7 @@ mongodb:
     mode: certManager
   cluster:
     image: percona/percona-server-mongodb:8.0
+    instances: 2
     resources:
       requests:
         cpu: 200m
