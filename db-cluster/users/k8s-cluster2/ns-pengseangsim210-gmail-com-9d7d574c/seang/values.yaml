@@ -4,6 +4,8 @@ gateway:
   enabled: true
 mongodb:
   enabled: true
+  unsafeFlags:
+    replsetSize: true
   externalAccess:
     enabled: true
     publicHostnames:
