@@ -9,6 +9,7 @@ mongodb:
     publicHostnames:
     - seang-0.seang.shop
     - seang-1.seang.shop
+    - seang-2.seang.shop
     replicaSetHorizons:
       enabled: true
       basePort: 17017
@@ -17,7 +18,7 @@ mongodb:
     mode: certManager
   cluster:
     image: percona/percona-server-mongodb:8.0
-    instances: 2
+    instances: 3
     resources:
       requests:
         cpu: 200m
