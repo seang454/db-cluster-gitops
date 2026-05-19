@@ -1,0 +1,35 @@
+global:
+  clusterIdentity: kean-clone
+gateway:
+  enabled: true
+redis:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - kean-clone-redis-leader-0.seang.shop
+    - kean-clone-redis-leader-1.seang.shop
+    - kean-clone-redis-leader-2.seang.shop
+    redisClusterDomainSuffix: seang.shop
+  tls:
+    enabled: true
+    mode: certManager
+  storage:
+    size: 3Gi
+  exporter:
+    enabled: true
+  cluster:
+    image: redis:7.2-alpine
+    instances: 3
+    leaderReplicas: 3
+    followerReplicas: 0
+    bootstrapSlots:
+      enabled: true
+    resources:
+      requests:
+        cpu: 75m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 512Mi
+  externalSecretRef: rediss4i9h8-redis-credentials
