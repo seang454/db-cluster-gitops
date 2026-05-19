@@ -1,5 +1,5 @@
 global:
-  clusterIdentity: kean-clone
+  clusterIdentity: redis7dkvnq
 gateway:
   enabled: true
 redis:
@@ -7,8 +7,8 @@ redis:
   externalAccess:
     enabled: true
     publicHostnames:
-    - kean-clone-redis-leader-0.seang.shop
-    - kean-clone-redis-leader-1.seang.shop
+    - redis7dkvnq-redis-leader-0.seang.shop
+    - redis7dkvnq-redis-leader-1.seang.shop
     redisClusterDomainSuffix: seang.shop
   tls:
     enabled: true
