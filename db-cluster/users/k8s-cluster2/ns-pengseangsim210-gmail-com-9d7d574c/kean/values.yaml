@@ -9,7 +9,6 @@ redis:
     publicHostnames:
     - kean-redis-leader-0.seang.shop
     - kean-redis-leader-1.seang.shop
-    - kean-redis-leader-2.seang.shop
     redisClusterDomainSuffix: seang.shop
   tls:
     enabled: true
@@ -20,6 +19,8 @@ redis:
     enabled: true
   cluster:
     image: redis:7.2-alpine
+    instances: 2
+    leaderReplicas: 2
     followerReplicas: 0
     bootstrapSlots:
       enabled: true
