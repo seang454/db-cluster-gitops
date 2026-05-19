@@ -5,17 +5,21 @@ gateway:
 redis:
   enabled: true
   externalAccess:
+    enabled: true
     publicHostnames:
     - kean-redis-leader-0.seang.shop
     - kean-redis-leader-1.seang.shop
     - kean-redis-leader-2.seang.shop
     redisClusterDomainSuffix: seang.shop
+  tls:
+    enabled: true
+    mode: certManager
   storage:
     size: 3Gi
+  exporter:
+    enabled: true
   cluster:
     image: redis:7.2-alpine
-    instances: 3
-    leaderReplicas: 3
     followerReplicas: 0
     bootstrapSlots:
       enabled: true
