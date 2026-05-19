@@ -18,7 +18,7 @@ redis:
   exporter:
     enabled: true
   cluster:
-    image: redis:7.2-alpine
+    image: redis:8.0-alpine
     instances: 2
     leaderReplicas: 2
     followerReplicas: 0
