@@ -10,8 +10,8 @@ cassandra:
   storage:
     size: 4Gi
   cluster:
-    image: k8ssandra/cass-management-api:5.0.3
-    serverVersion: 5.0.3
+    image: k8ssandra/cass-management-api:5.0.5-ubi
+    serverVersion: 5.0.5
     instances: 3
     config:
       clusterName: seang
