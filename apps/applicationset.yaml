@@ -17,7 +17,7 @@ spec:
 
   template:
     metadata:
-      name: '{{path[3]}}-{{path.basename}}-db-cluster'
+      name: '{{path.basename}}'
       finalizers:
         - resources-finalizer.argocd.argoproj.io  # ← use simple finalizer, not foreground
     spec:
