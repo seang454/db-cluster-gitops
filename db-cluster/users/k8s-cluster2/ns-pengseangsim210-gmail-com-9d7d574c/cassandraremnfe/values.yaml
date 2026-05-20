@@ -19,6 +19,7 @@ cassandra:
   cluster:
     image: k8ssandra/cass-management-api:5.0.5-ubi
     serverVersion: 5.0.5
+    instances: 2
     resources:
       requests:
         cpu: 300m
