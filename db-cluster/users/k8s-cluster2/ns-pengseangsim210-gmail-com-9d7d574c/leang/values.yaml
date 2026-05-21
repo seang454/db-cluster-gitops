@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: leang
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - leang.seang.shop
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:16.2
+    instances: 3
+    bootstrap:
+      database: database
+      owner: app_leang
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: leang-postgresql-app
+  superuserExternalSecretRef: leang-postgresql-credentials
