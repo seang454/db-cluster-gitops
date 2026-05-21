@@ -1,5 +1,6 @@
 global:
   clusterIdentity: seang
+  backupBucket: a8s-clusterdb-backup
 gateway:
   enabled: true
 postgresql:
@@ -13,6 +14,7 @@ postgresql:
     mode: operator
   cluster:
     imageName: ghcr.io/cloudnative-pg/postgresql:16.14
+    instances: 1
     bootstrap:
       database: database
       owner: app_seang
