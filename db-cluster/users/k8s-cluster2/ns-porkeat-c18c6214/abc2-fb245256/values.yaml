@@ -1,0 +1,27 @@
+global:
+  clusterIdentity: abc2-fb245256
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - abc2.seang.shop
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    bootstrap:
+      database: abc
+      owner: app_abc2
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+  credentials:
+    admin: '1234'
+    superuser: '1234'
