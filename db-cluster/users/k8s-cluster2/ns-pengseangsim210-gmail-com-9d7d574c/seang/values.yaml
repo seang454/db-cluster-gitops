@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: seang
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - seang.seang.shop
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:17.10
+    instances: 3
+    bootstrap:
+      database: databse
+      owner: app_seang
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: seang-postgresql-app
+  superuserExternalSecretRef: seang-postgresql-credentials
