@@ -37,7 +37,7 @@ spec:
               - $uservalues/{{path}}/values.yaml
 
       destination:
-        name: k8s-cluster2
+        name: https://34.50.95.205:6443
         namespace: '{{path[3]}}'
 
       syncPolicy:
