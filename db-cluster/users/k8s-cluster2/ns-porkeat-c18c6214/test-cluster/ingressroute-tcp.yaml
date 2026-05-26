@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: test-cluster-tcp
+  namespace: ns-porkeat-c18c6214
+spec:
+  entryPoints:
+  - postgresql
+  routes:
+  - match: HostSNI(`test-cluster.seang.shop`)
+    services:
+    - name: test-cluster-postgresql-pooler-rw
+      port: 5432
+  tls:
+    passthrough: true
