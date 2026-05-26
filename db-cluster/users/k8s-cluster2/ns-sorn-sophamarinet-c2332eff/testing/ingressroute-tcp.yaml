@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: testing-tcp
+  namespace: ns-sorn-sophamarinet-c2332eff
+spec:
+  entryPoints:
+  - postgresql
+  routes:
+  - match: HostSNI(`testing.seang.shop`)
+    services:
+    - name: testing-postgresql-pooler-rw
+      port: 5432
+  tls:
+    passthrough: true
