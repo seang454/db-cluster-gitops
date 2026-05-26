@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: mydb
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - mydb.seang.shop
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:18.4
+    instances: 3
+    bootstrap:
+      database: appdb
+      owner: app_mydb
+    resources:
+      requests:
+        cpu: 350m
+        memory: 1Gi
+      limits:
+        cpu: 1000m
+        memory: 2Gi
+  storage:
+    size: 8Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: mydb-postgresql-app
+  superuserExternalSecretRef: mydb-postgresql-credentials
