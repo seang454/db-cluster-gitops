@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: abc2a-tcp
+  namespace: ns-porkeat-c18c6214
+spec:
+  entryPoints:
+  - postgresql
+  routes:
+  - match: HostSNI(`abc2a.seang.shop`)
+    services:
+    - name: abc2a-postgresql-pooler-rw
+      port: 5432
+  tls:
+    passthrough: true
