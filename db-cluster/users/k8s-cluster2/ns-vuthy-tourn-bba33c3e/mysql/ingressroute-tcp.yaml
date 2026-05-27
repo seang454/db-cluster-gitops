@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: mysql-tcp
+  namespace: ns-vuthy-tourn-bba33c3e
+spec:
+  entryPoints:
+  - mysql
+  routes:
+  - match: HostSNI(`mysql.seang.shop`)
+    services:
+    - name: mysql-haproxy
+      port: 3306
+  tls:
+    passthrough: true
