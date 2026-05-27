@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: lala
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - lala.seang.shop
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:17.10
+    instances: 3
+    bootstrap:
+      database: mypostgres
+      owner: app_lala
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: lala-postgresql-app
+  superuserExternalSecretRef: lala-postgresql-credentials
