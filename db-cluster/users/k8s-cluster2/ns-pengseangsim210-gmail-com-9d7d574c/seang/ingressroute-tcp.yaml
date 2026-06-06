@@ -7,7 +7,7 @@ spec:
   entryPoints:
   - cassandra
   routes:
-  - match: HostSNI(`seang.seang.shop`)
+  - match: HostSNI(`seang.autonomous-istad.com`)
     services:
     - name: seang-dsean-service
       port: 9042

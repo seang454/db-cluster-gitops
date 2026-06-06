@@ -7,7 +7,7 @@ cassandra:
   enabled: true
   externalAccess:
     publicHostnames:
-    - seang.seang.shop
+    - seang.autonomous-istad.com
   storage:
     size: 4Gi
   connection:

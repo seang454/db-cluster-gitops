@@ -23,7 +23,7 @@ externalTcpProxy:
   replicas: 1
   nodeSelector:
     kubernetes.io/hostname: worker03
-  clusterDomain: seang.shop
+  clusterDomain: autonomous-istad.com
   kubeClusterDomain: benzcluster
   expose:
     postgresql: false
