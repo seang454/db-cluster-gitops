@@ -1,0 +1,35 @@
+global:
+  clusterIdentity: seang-clone
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    enabled: true
+    publicHostnames:
+    - seang-clone.autonomous-istad.com
+  tls:
+    enabled: true
+    mode: operator
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:17.10
+    instances: 3
+    bootstrap:
+      database: database
+      owner: app_seang
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: postgrestptbuk-postgresql-app
+  superuserExternalSecretRef: postgrestptbuk-postgresql-credentials
