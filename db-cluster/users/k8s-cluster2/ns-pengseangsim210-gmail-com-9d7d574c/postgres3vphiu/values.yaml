@@ -1,5 +1,5 @@
 global:
-  clusterIdentity: seang-clone
+  clusterIdentity: postgres3vphiu
   backupBucket: a8s-clusterdb-backup
 gateway:
   enabled: true
@@ -14,7 +14,7 @@ postgresql:
     mode: operator
   cluster:
     imageName: ghcr.io/cloudnative-pg/postgresql:16.14
-    instances: 2
+    instances: 3
     bootstrap:
       database: database
       owner: app_seang
@@ -27,8 +27,6 @@ postgresql:
         memory: 1Gi
   storage:
     size: 4Gi
-    wal:
-      enabled: false
   pooler:
     enabled: true
   externalSecretRef: postgres3vphiu-postgresql-app
