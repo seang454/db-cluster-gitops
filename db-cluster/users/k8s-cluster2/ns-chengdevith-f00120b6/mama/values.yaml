@@ -1,0 +1,31 @@
+global:
+  clusterIdentity: mama
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+postgresql:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - mama.autonomous-istad.com
+  cluster:
+    imageName: ghcr.io/cloudnative-pg/postgresql:18.4
+    instances: 3
+    bootstrap:
+      database: mama
+      owner: mama
+    resources:
+      requests:
+        cpu: 200m
+        memory: 512Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: mama-postgresql-app
+  superuserExternalSecretRef: mama-postgresql-credentials
