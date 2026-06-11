@@ -1,0 +1,30 @@
+global:
+  clusterIdentity: seang
+  backupBucket: a8s-clusterdb-backup
+gateway:
+  enabled: true
+redis:
+  enabled: true
+  externalAccess:
+    publicHostnames:
+    - seang-redis-leader-0.autonomous-istad.com
+    - seang-redis-leader-1.autonomous-istad.com
+    - seang-redis-leader-2.autonomous-istad.com
+    redisClusterDomainSuffix: autonomous-istad.com
+  storage:
+    size: 3Gi
+  cluster:
+    image: redis:8.0-alpine
+    instances: 3
+    leaderReplicas: 3
+    followerReplicas: 0
+    bootstrapSlots:
+      enabled: true
+    resources:
+      requests:
+        cpu: 75m
+        memory: 128Mi
+      limits:
+        cpu: 200m
+        memory: 512Mi
+  externalSecretRef: seang-redis-credentials
