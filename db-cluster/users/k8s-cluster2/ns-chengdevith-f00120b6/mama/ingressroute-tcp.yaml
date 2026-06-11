@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: mama-tcp
+  namespace: ns-chengdevith-f00120b6
+spec:
+  entryPoints:
+  - postgresql
+  routes:
+  - match: HostSNI(`mama.autonomous-istad.com`)
+    services:
+    - name: mama-postgresql-pooler-rw
+      port: 5432
+  tls:
+    passthrough: true
