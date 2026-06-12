@@ -3,28 +3,29 @@ global:
   backupBucket: a8s-clusterdb-backup
 gateway:
   enabled: true
-redis:
+postgresql:
   enabled: true
   externalAccess:
     publicHostnames:
-    - seang-redis-leader-0.autonomous-istad.com
-    - seang-redis-leader-1.autonomous-istad.com
-    - seang-redis-leader-2.autonomous-istad.com
-    redisClusterDomainSuffix: autonomous-istad.com
-  storage:
-    size: 3Gi
+    - seang.autonomous-istad.com
   cluster:
-    image: redis:8.0-alpine
+    imageName: ghcr.io/cloudnative-pg/postgresql:17.10
     instances: 3
-    leaderReplicas: 3
-    followerReplicas: 0
-    bootstrapSlots:
-      enabled: true
+    bootstrap:
+      database: database
+      owner: app_seang
     resources:
       requests:
-        cpu: 75m
-        memory: 128Mi
-      limits:
         cpu: 200m
         memory: 512Mi
-  externalSecretRef: seang-redis-credentials
+      limits:
+        cpu: 500m
+        memory: 1Gi
+  storage:
+    size: 4Gi
+    wal:
+      enabled: false
+  pooler:
+    enabled: true
+  externalSecretRef: seang-postgresql-app
+  superuserExternalSecretRef: seang-postgresql-credentials

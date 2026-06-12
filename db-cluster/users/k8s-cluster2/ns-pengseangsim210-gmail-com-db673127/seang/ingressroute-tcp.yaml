@@ -5,19 +5,11 @@ metadata:
   namespace: ns-pengseangsim210-gmail-com-db673127
 spec:
   entryPoints:
-  - redis
+  - postgresql
   routes:
-  - match: HostSNI(`seang-redis-leader-0.autonomous-istad.com`)
+  - match: HostSNI(`seang.autonomous-istad.com`)
     services:
-    - name: seang-redis-leader-0
-      port: 6379
-  - match: HostSNI(`seang-redis-leader-1.autonomous-istad.com`)
-    services:
-    - name: seang-redis-leader-1
-      port: 6379
-  - match: HostSNI(`seang-redis-leader-2.autonomous-istad.com`)
-    services:
-    - name: seang-redis-leader-2
-      port: 6379
+    - name: seang-postgresql-pooler-rw
+      port: 5432
   tls:
     passthrough: true
